@@ -107,4 +107,25 @@ angular.module('demoApp')
                 title : from
             };
         };
+
+        
+
+        $scope.user = {
+            name: '',
+            firstname: '',
+            phone:'',
+            email:'',
+            adress:''
+
+
+        };
+
+        $scope.submitForm = function() {
+
+                // check to make sure the form is completely valid
+                if ($scope.userForm.$valid) {
+                    alert('our form is amazing');
+                }
+
+            };
     });

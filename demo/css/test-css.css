@@ -70,3 +70,13 @@ div.demo-container input.demo{
 
 }
 .ace_editor { height: 400px; width:500px; }
+
+
+
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue; }
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+    color: red; }

@@ -2,7 +2,7 @@
 
     <div ng-include="'pages/_templates/page_title.html'"></div>
 
-    <div ng-if="!displayCode" md-scroll-y layout-sm="column" layout="row" layout-padding>
+    <div ng-if="!displayCode" ng-submit="submitForm() md-scroll-y layout-sm="column" layout="row" layout-padding>
 
         <!-- _____ DEMO -->
         <div layout="column" flex>
@@ -14,6 +14,41 @@
             <md-card style="padding:10px;overflow: auto" ng-style="{'max-height':maxHeight,'min-height':maxHeight}" layout="column" layout-align="start start" class="page_settings">
 
                 <div ng-include="'pages/demoForm/code/directive.html'" style="width: 100%"></div>
+                <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Name</label>
+      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <input ng-model="user.name" type="text">
+    </md-input-container>
+
+    <md-input-container class="md-icon-float md-block">
+      <label>First Name</label>
+      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <input ng-model="user.firstname" type="text">
+    </md-input-container>
+
+    <md-input-container md-no-float="" class="md-block">
+      <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+      <input ng-model="user.phone" type="text" placeholder="Phone Number">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+      <!-- Use floating placeholder instead of label -->
+      <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+      <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+    </md-input-container>
+
+    <md-input-container md-no-float="" class="md-block">
+      <input ng-model="user.address" type="text" placeholder="Address">
+      <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+    </md-input-container>
+
+
+    <div>
+        <md-button type="submit" ng-disabled="userForm.$invalid">Submit</md-button>
+    </div>
+
+</div>
 
             </md-card>
 
