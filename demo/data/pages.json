@@ -1,13 +1,20 @@
-[{
-  "name"        : "user render",
-  "description" : "example about how to use the directive paris1-user-render",
-  "icon"        : "person",
-  "state"       : "userRender"
-},
-{
-  "name"        : "user form",
-  "description" : "example about how to use the directive paris1-user-form",
-  "icon"        : "edit",
-  "state"       : "userForm"
-}
+[
+  {
+    "name"        : "user render",
+    "description" : "example about how to use the directive paris1-user-render",
+    "icon"        : "person",
+    "state"       : "userRender"
+  },
+  {
+    "name"        : "user form",
+    "description" : "example about how to use the directive paris1-user-form",
+    "icon"        : "edit",
+    "state"       : "userForm"
+  },
+  {
+    "name"        : "user style editor",
+    "description" : "example about how to use the directive paris1-user-style-editor",
+    "icon"        : "code",
+    "state"       : "userStyleEditor"
+  }
 ]

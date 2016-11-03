@@ -1,6 +1,9 @@
 modelFiles = {
     src : [
 
+        'src/modules/style/module.js',
+        'src/modules/style/{,**/}*.js',
+
         'src/modules/form/module.js',
         'src/modules/form/{,**/}*.js',
 

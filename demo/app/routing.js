@@ -27,6 +27,12 @@ angular.module('demoApp')
             controller : 'demoFormCtrl',
             templateUrl : "pages/demoForm/demoFormView.html"
         })
+
+        .state('userStyleEditor', {
+            url : '/user-style-editor',
+            controller : 'demoStyleCtrl',
+            templateUrl : "pages/demoStyle/demoStyleView.html"
+        })
     ;
 
         $urlRouterProvider.otherwise('/');
