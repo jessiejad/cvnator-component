@@ -7,42 +7,56 @@ angular.module('demoApp')
         // ----------------------------------------------------------------------------------------------------
         // ---- PARAMS CATALOGUE
         // ----------------------------------------------------------------------------------------------------
-        /**
-         * Here test use case
-         *
-         * Needed use case to valid the project :
-         *      - Default
-         *      - Inject an user
-         *      - Inject an userId
-         *      - Inject responsive design
-         * @type {*[]}
-         */
+
         $scope.params = [{
             /**
              * Default
              */
-            case       : 'Default Case'
+            case       : 'Default Case',
+            options    : undefined,
+            json       : undefined,
+            callback   : undefined,
+            listeners  : undefined
         },{
             /**
              * Case JSON
              */
             case       : 'Case inject Json',
-            user       : {
-                "id" : "userId",
-                "fullname": "Mr Hello World"
+            options    : undefined,
+            json       : { "background-color" : "red" },
+            callback   : undefined,
+            listeners  : undefined
+
+        },{
+            /**
+             * Callback active
+             */
+            case       : 'Case Callback and Function',
+            options    : undefined,
+            json       : { "background-color" : "red" },
+
+            callback   : {
+                valid : function(json){
+                    displayCode('Callback : valid',json);
+                    console.log(json);
+                    angular.forEach(json, function(value, key) {
+                        $('#myDiv').css(key, value);
+                    });
+                }
+            },
+            listeners  : {
+                onError : function(errors){
+                    displayCode('Listeners : onError',errors,true);
+                }
             }
         }];
 
-        // ---- Apply params
         $scope.chooseParams = function(index){
             // --- Define current status
-            /**
-             * Here define your params inject to paris1-user-render
-             */
-            // $scope.myOptions    = $scope.params[index].options;
-            // $scope.myJson       = $scope.params[index].json;
-            // $scope.myCallback   = $scope.params[index].callback;
-            // $scope.myListener   = $scope.params[index].listeners;
+            $scope.myOptions    = $scope.params[index].options;
+            $scope.myJson       = $scope.params[index].json;
+            $scope.myCallback   = $scope.params[index].callback;
+            $scope.myListener   = $scope.params[index].listeners;
 
             $scope.index          = index;
             $scope.refresh        = moment().valueOf();
@@ -52,6 +66,17 @@ angular.module('demoApp')
         // --- Init
         $scope.chooseParams(0);
 
+        // --- Update result viewer
+        var displayCode = function(from,code,isError){
+
+            $scope.haveResult   = true;
+
+            $scope.result       = {
+                code : code,
+                isError : isError,
+                title : from
+            };
+        };
         // ----------------------------------------------------------------------------------------------------
         // ---- DISPLAY CODE MODE
         // ----------------------------------------------------------------------------------------------------

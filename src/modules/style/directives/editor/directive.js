@@ -35,6 +35,7 @@ angular.module('paris1.user.style.editor')
                  * Check if callback in params
                  */
                 scope.$watch('callback', function(callback){
+                    console.log("watch callback");
                     if(callback){
                         scope.actions = angular.extend({},default_actions,callback);
                     }else{
