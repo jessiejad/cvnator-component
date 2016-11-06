@@ -1,6 +1,9 @@
 modelFiles = {
     src : [
 
+        'src/modules/styleChat/module.js',
+        'src/modules/styleChat/{,**/}*.js',
+
         'src/modules/style/module.js',
         'src/modules/style/{,**/}*.js',
 

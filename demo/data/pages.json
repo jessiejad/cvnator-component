@@ -16,5 +16,12 @@
     "description" : "example about how to use the directive paris1-user-style-editor",
     "icon"        : "code",
     "state"       : "userStyleEditor"
+  },
+
+  {
+    "name"        : "user styleChat editor",
+    "description" : "example about how to use the directive paris1-user-styleChat-editor pour le groupe de Wang",
+    "icon"        : "code",
+    "state"       : "userStyleChatEditor"
   }
 ]

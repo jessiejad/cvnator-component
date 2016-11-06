@@ -33,6 +33,12 @@ angular.module('demoApp')
             controller : 'demoStyleCtrl',
             templateUrl : "pages/demoStyle/demoStyleView.html"
         })
+
+        .state('userStyleChatEditor', {
+            url : '/user-styleChat-editor',
+            controller : 'demoStyleChatCtrl',
+            templateUrl : "pages/demoStyleChat/demoStyleChatView.html"
+        })
     ;
 
         $urlRouterProvider.otherwise('/');
