@@ -80,3 +80,7 @@ div.demo-container input.demo{
   .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
   .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
     color: red; }
+
+
+    .carddemoBasicUsage .card-media {
+  background-color: #999999; }
