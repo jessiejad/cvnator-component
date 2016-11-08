@@ -39,9 +39,11 @@ angular.module('demoApp')
                 valid : function(json){
                     displayCode('Callback : valid',json);
                     console.log(json);
-                    angular.forEach(json, function(value, key) {
+                    /*angular.forEach(json, function(value, key) {
                         $('#myDiv').css(key, value);
-                    });
+                    });*/
+                    $scope.myStyle = json;
+                    console.log($scope.myStyle);
                 }
             },
             listeners  : {
