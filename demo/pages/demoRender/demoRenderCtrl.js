@@ -35,8 +35,12 @@ angular.module('demoApp')
             case       : 'Case user',
             user    : {
                 name : 'toto',
+                firstName :"gaga",
                 photo : 'http://127.0.0.1:9100/images/photos/F60.png',
-                birthDate : "2000-01-01"
+                birthDate : "2000-01-01",    
+                phone : "423 213 921",
+                email : "totoga@gmail.com",
+                address : "34 avenue saint martin, 75002 Paris"
             },
             callback : {
                 valid : function(user){
