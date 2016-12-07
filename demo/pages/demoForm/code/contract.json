@@ -1,3 +1,11 @@
 {
   "TODO" : "List scope directive"
 }
+
+{
+  "user" : "Resource User",
+
+  "callback"   : {
+    "onValid" : "function(user){}"
+  }
+}
