@@ -2,7 +2,11 @@
   "user" : {
     "photo" : "String",
     "name"  : "String",
-    "birthDate" : "Date"
+    "firstName" :"String",
+    "birthDate" : "Date",
+    "phone" : "Integer",
+    "email" : "String",
+    "address" : "String"
   },
 
   "callback" : {

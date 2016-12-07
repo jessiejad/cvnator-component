@@ -3,7 +3,7 @@
 angular.module('paris1.user.render')
     .directive('myUser',function($log,User){
         return {
-            templateUrl : 'paris1.personator/modules/render/directives/my-user/view.html',
+            templateUrl : 'paris1.personator/modules/render/directives/my-user/myUserView.html',
             scope : {
                 user : '=?',
                 callback : '=?'

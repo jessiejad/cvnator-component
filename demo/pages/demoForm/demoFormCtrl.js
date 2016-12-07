@@ -9,42 +9,39 @@ angular.module('demoApp')
         // ----------------------------------------------------------------------------------------------------
         // ---- PARAMS CATALOGUE
         // ----------------------------------------------------------------------------------------------------
-        /**
-         * Here test use case
-         *
-         * Needed use case to valid the project :
-         *      - Default
-         *      - Inject an user
-         *      - Inject callback > onValid, onError, onSaveUser
-         *      - Inject responsive design
-         * @type {*[]}
-         */
+
         $scope.params = [{
             /**
              * Default
              */
-            case       : 'Default Case'
+            case        : 'Default Case',
+            user        : undefined,
+            callback    : undefined
         },{
             /**
-             * Case JSON
+             * Case user
              */
-            case       : 'Case inject Json',
-            user       : {
-                "id" : "userId",
-                "fullname": "Mr Hello World"
+            case       : 'Case user',
+            user    : {
+                name : 'toto',
+                firstName :"gaga",
+                //photo : 'http://127.0.0.1:9100/images/photos/F60.png',
+                birthDate : "2000-01-01",    
+                phone : "423 213 921",
+                email : "totoga@gmail.com",
+                address : "34 avenue saint martin, 75002 Paris"
+            },
+            callback : {
+                onValid : function(user){
+                    displayCode('onValid', user)
+                }
             }
         }];
 
-        // ---- Apply params
         $scope.chooseParams = function(index){
             // --- Define current status
-            /**
-             * Here define your params inject to paris1-user-render
-             */
-            // $scope.myOptions    = $scope.params[index].options;
-            // $scope.myJson       = $scope.params[index].json;
-            // $scope.myCallback   = $scope.params[index].callback;
-            // $scope.myListener   = $scope.params[index].listeners;
+            $scope.myUser    = $scope.params[index].user;
+            $scope.myCallback = $scope.params[index].callback;
 
             $scope.index          = index;
             $scope.refresh        = moment().valueOf();
@@ -54,6 +51,17 @@ angular.module('demoApp')
         // --- Init
         $scope.chooseParams(0);
 
+        // --- Update result viewer
+        var displayCode = function(from,code,isError){
+
+            $scope.haveResult   = true;
+
+            $scope.result       = {
+                code : code,
+                isError : isError,
+                title : from
+            };
+        };
         // ----------------------------------------------------------------------------------------------------
         // ---- DISPLAY CODE MODE
         // ----------------------------------------------------------------------------------------------------
@@ -74,11 +82,11 @@ angular.module('demoApp')
             code : [{
                 link : 'pages/demoform/code/directive.html',
                 language : 'html',
-                title : 'Code HTML de la directive paris1-user-form'
+                title : 'Code HTML de la directive demoform'
             },{
                 link : 'pages/demoform/code/contract.json',
                 language : 'json',
-                title : 'Contract available for the directive paris1-user-form'
+                title : 'Params available for the directive demoform'
             }]
         };
 
@@ -91,41 +99,4 @@ angular.module('demoApp')
             $scope.hideParams = !$scope.hideParams;
         };
 
-        /**
-         * Update result viewer
-         * @param from
-         * @param code
-         * @param isError
-         */
-        var displayCode = function(from,code,isError){
-
-            $scope.haveResult   = true;
-
-            $scope.result       = {
-                code : code,
-                isError : isError,
-                title : from
-            };
-        };
-
-        
-
-        $scope.user = {
-            name: '',
-            firstname: '',
-            phone:'',
-            email:'',
-            adress:''
-
-
-        };
-
-        $scope.submitForm = function() {
-
-                // check to make sure the form is completely valid
-                if ($scope.userForm.$valid) {
-                    alert('our form is amazing');
-                }
-
-            };
     });
