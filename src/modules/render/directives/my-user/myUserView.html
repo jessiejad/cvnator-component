@@ -2,35 +2,35 @@
     User manquant ....
 </div>
 
-<md-content class="md-padding" layout-xs="column" layout="row" ng-if="user" ng-style="myStyle">
+<md-content class="md-padding" layout-xs="column" layout="row" ng-if="user" ng-style="myGeneral">
     <div flex="20">
-            <img ng-src="{{user.photo}}" ng-if="user.photo" style="width: 100px; height: 100px;border-radius:30px"/>
+            <img ng-style="myPhoto" ng-src="{{user.photo}}" ng-if="user.photo" style="width: 100px; height: 100px;border-radius:30px"/>
         </div>
 
 
-    <md-content ng-style="myStyle">
+    <md-content ng-style="myGeneral">
       <md-list flex="">
         
-        <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null" ng-style="myStyle">
+        <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null" ng-style="myListe">
           
           <div class="md-list-item-text" layout="column">
             
           </div>
         </md-list-item>
-        <md-divider ng-style="myStyle"></md-divider>
-        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.name }} {{ }} {{ user.firstName}} </md-subheader>
+        <md-divider ng-style="myListe"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myListe">{{user.name }} {{ }} {{ user.firstName}} </md-subheader>
         
         
-        <md-divider ng-style="myStyle"></md-divider>
-        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.birthDate}}</md-subheader>
+        <md-divider ng-style="myListe"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myListe">{{user.birthDate}}</md-subheader>
 
-        <md-divider ng-style="myStyle"></md-divider>
-        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.phone}}</md-subheader>
+        <md-divider ng-style="myListe"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myListe">{{user.phone}}</md-subheader>
 
-        <md-divider ng-style="myStyle"></md-divider>
-        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.email}}</md-subheader>
+        <md-divider ng-style="myListe"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myListe">{{user.email}}</md-subheader>
         
-        <md-divider ng-style="myStyle"></md-divider>
-        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.address}}</md-subheader>
+        <md-divider ng-style="myListe"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myListe">{{user.address}}</md-subheader>
     
 </md-content>

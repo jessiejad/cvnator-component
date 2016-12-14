@@ -44,21 +44,20 @@ angular.module('demoApp')
             options    : undefined,
             json       : {  "css": [ 
       {
-          "myStyle": {
-              "background-color":"red",
-              "color":"blue"
+          "photo": {
+                "border-radius":"5px"
           }
       }, 
       {
-          "myStyle2": {
-              "background-color":"green",
-              "color":"red"
+          "general": {
+              "background-color":"#4f5d73"
           }
       },
       {
-          "myStyle3": {
-              "background-color":"green",
-              "color":"red"
+          "liste": {
+              "width":"850px",
+              "background-color":"whitesmoke",
+              "color":"#4f5d73"
           }
       }
    ]},
@@ -66,10 +65,10 @@ angular.module('demoApp')
             callback   : {
                 valid : function(json){
                     displayCode('Callback : valid',json);
-                    console.log(json.css[0].myStyle);
-                    $scope.myStyle=json.css[0].myStyle;
-                    $scope.myStyle2=json.css[1].myStyle2;
-                    $scope.myStyle3=json.css[2].myStyle3;
+                    console.log(json.css[0].photo);
+                    $scope.photo=json.css[0].photo;
+                    $scope.general=json.css[1].general;
+                    $scope.liste=json.css[2].liste;
                     
                 }
             },

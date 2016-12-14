@@ -7,7 +7,9 @@ angular.module('paris1.user.render')
             scope : {
                 user : '=?',
                 callback : '=?',
-                style: '=?'
+                general: '=?',
+                photo: '=?',
+                liste: '=?'
             },link : function(scope){
 
 
@@ -38,16 +40,40 @@ angular.module('paris1.user.render')
 
                 });
 
-                scope.$watch('style',function(style){
-                    $log.info('test style change',style);
-                    if(style){
+                scope.$watch('general',function(general){
+                    $log.info('test general change',general);
+                    if(general){
 
-                        scope.myStyle = style;
+                        scope.myGeneral = general;
                     }else{
-                        scope.myStyle = "";
+                        scope.myGeneral = "";
                     }
 
-                    console.log(scope.myStyle);
+                    console.log(scope.myGeneral);
+
+                });
+                scope.$watch('photo',function(photo){
+                    $log.info('test photo change',photo);
+                    if(photo){
+
+                        scope.myPhoto = photo;
+                    }else{
+                        scope.myPhoto = "";
+                    }
+
+                    console.log(scope.myPhoto);
+
+                });
+                scope.$watch('liste',function(liste){
+                    $log.info('test liste change',liste);
+                    if(liste){
+
+                        scope.myListe = liste;
+                    }else{
+                        scope.myListe = "";
+                    }
+
+                    console.log(scope.myListe);
 
                 });
 
