@@ -32,6 +32,15 @@ angular.module('demoApp')
              * Callback active
              */
             case       : 'Case Callback and Function',
+            user    : {
+                name : 'toto',
+                firstName :"gaga",
+                photo : 'http://127.0.0.1:9100/images/photos/F60.png',
+                birthDate : "2000-01-01",    
+                phone : "423 213 921",
+                email : "totoga@gmail.com",
+                address : "34 avenue saint martin, 75002 Paris"
+            },
             options    : undefined,
             json       : {  "css": [ 
       {
@@ -45,6 +54,12 @@ angular.module('demoApp')
               "background-color":"green",
               "color":"red"
           }
+      },
+      {
+          "myStyle3": {
+              "background-color":"green",
+              "color":"red"
+          }
       }
    ]},
 
@@ -54,6 +69,7 @@ angular.module('demoApp')
                     console.log(json.css[0].myStyle);
                     $scope.myStyle=json.css[0].myStyle;
                     $scope.myStyle2=json.css[1].myStyle2;
+                    $scope.myStyle3=json.css[2].myStyle3;
                     
                 }
             },
@@ -70,6 +86,7 @@ angular.module('demoApp')
             $scope.myJson       = $scope.params[index].json;
             $scope.myCallback   = $scope.params[index].callback;
             $scope.myListener   = $scope.params[index].listeners;
+            $scope.myUser       = $scope.params[index].user;
 
             $scope.index          = index;
             $scope.refresh        = moment().valueOf();

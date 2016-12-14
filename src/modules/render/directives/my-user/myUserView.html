@@ -2,35 +2,35 @@
     User manquant ....
 </div>
 
-<md-content class="md-padding" layout-xs="column" layout="row" ng-if="user">
+<md-content class="md-padding" layout-xs="column" layout="row" ng-if="user" ng-style="myStyle">
     <div flex="20">
             <img ng-src="{{user.photo}}" ng-if="user.photo" style="width: 100px; height: 100px;border-radius:30px"/>
         </div>
 
 
-    <md-content>
+    <md-content ng-style="myStyle">
       <md-list flex="">
         
-        <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null">
+        <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null" ng-style="myStyle">
           
           <div class="md-list-item-text" layout="column">
             
           </div>
         </md-list-item>
-        <md-divider></md-divider>
-        <md-subheader class="md-no-sticky">{{user.name }} {{ }} {{ user.firstName}} </md-subheader>
+        <md-divider ng-style="myStyle"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.name }} {{ }} {{ user.firstName}} </md-subheader>
         
         
-        <md-divider></md-divider>
-        <md-subheader class="md-no-sticky">{{user.birthDate}}</md-subheader>
+        <md-divider ng-style="myStyle"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.birthDate}}</md-subheader>
 
-        <md-divider></md-divider>
-        <md-subheader class="md-no-sticky">{{user.phone}}</md-subheader>
+        <md-divider ng-style="myStyle"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.phone}}</md-subheader>
 
-        <md-divider></md-divider>
-        <md-subheader class="md-no-sticky">{{user.email}}</md-subheader>
+        <md-divider ng-style="myStyle"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.email}}</md-subheader>
         
-        <md-divider></md-divider>
-        <md-subheader class="md-no-sticky">{{user.address}}</md-subheader>
-    </div>
+        <md-divider ng-style="myStyle"></md-divider>
+        <md-subheader class="md-no-sticky" ng-style="myStyle">{{user.address}}</md-subheader>
+    
 </md-content>

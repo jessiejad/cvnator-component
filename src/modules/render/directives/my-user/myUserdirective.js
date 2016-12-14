@@ -6,7 +6,8 @@ angular.module('paris1.user.render')
             templateUrl : 'paris1.personator/modules/render/directives/my-user/myUserView.html',
             scope : {
                 user : '=?',
-                callback : '=?'
+                callback : '=?',
+                style: '=?'
             },link : function(scope){
 
 
@@ -34,6 +35,19 @@ angular.module('paris1.user.render')
                     }
 
                     console.log(scope.current_user);
+
+                });
+
+                scope.$watch('style',function(style){
+                    $log.info('test style change',style);
+                    if(style){
+
+                        scope.myStyle = style;
+                    }else{
+                        scope.myStyle = "";
+                    }
+
+                    console.log(scope.myStyle);
 
                 });
 
