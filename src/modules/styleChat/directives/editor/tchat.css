@@ -1,0 +1,24 @@
+.popup-box {
+  bottom: 0;
+  display: none;
+  height: 415px;
+  position: fixed;
+  right: 70px;
+  width: 300px;
+}
+.popup-box-on {
+  display: block !important;
+}
+
+.popup-messages-footer {
+  background: #fcfcfc none repeat scroll 0 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  padding: 2px 5px 10px 6px;
+}
+
+.popup-box2 {
+  height: 50px;
+  margin-bottom: 0.5em;
+}

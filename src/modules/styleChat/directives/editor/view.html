@@ -1,47 +1,162 @@
-<form id        =   "myJsonEditor"
-      name      =   "myForm"
-      novalidate
-      layout    =   "column"
-      ng-submit =   "myForm.$valid && !editorError && !eerror.length && actions.valid(currentJson)"
-      ng-style  =   "{'min-height' : currentHeight, 'max-height' : currentHeight}"
-      style="overflow-y: hidden;overflow-x: hidden">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link rel="stylesheet" href="tchat.css"> 
 
-    <!-- FORM CONTENT -->
-    <div flex
-         layout     =   "column"
-         style      =   "overflow-y:auto;overflow-x: hidden;"
-         ng-style   =   "{'min-height' : maxHeightContainer , 'max-height' : maxHeightContainer}">
+<form name="myTchat" >
 
-        <div layout="column" flex ng-if="aceAvailable">
-
-            <h2 class="title">Editeur JSON </h2>
-
-            <div ui-ace="aceOption" ng-model="aceModel" style="width: 100%" ng-style = "{'max-height' : aceMaxHeight }"></div>
-
+    <div class="popup-box chat-popup" id="qnimate"  style="background: white;">
+        <!-- header à laisser afficher -->
+        <div class="popup-head" id="removeClass">
+            <md-toolbar md-scroll-shrink>
+                <div class="md-toolbar-tools">Fenêtre de discussion</div>
+            </md-toolbar>
         </div>
-
+            <div class="popup-messages" >
+                <div class="direct-chat-messages" >
+                    <md-content style="background: white;">
+                    <section>
+                        <!--<md-subheader class="md-primary">Unread Messages</md-subheader> -->
+                        <md-list layout-padding >
+                            <md-list-item class="md-3-line" style="background: white;" ng-repeat="message in messages">
+                                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+                                <div class="md-list-item-text">
+                                    <h3>{{message.what}}</h3>
+                                    <h4>{{message.who}}</h4>
+                                    <p>
+                                        {{message.notes}}
+                                    </p>
+                                </div>
+                            </md-list-item> 
+                        </md-list>
+                    </section>
+                    </md-content>
+                </div>
+            </div>
+            <div class="popup-messages-footer">
+                <div class="input-group">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <input id="status_message" placeholder="Entrez votre message" name="message">
+                    </md-input-container>
+                    <span class="input-group-btn" id="msg-input">
+                        <md-button class="md-fab" aria-label="Comment">
+                         <md-icon md-svg-src="material-design:comment"></md-icon>
+                        </md-button>
+                     </span>
+                </div>
+            </div>
     </div>
 
-    <!-- BOUTON ACTIONS -->
-    <div layout="row" layout-align="start center" class="shadow_up" >
+    <div class="popup-box2 popup-box popup-box-on" id="qnimate2">
 
-        <div ng-if="errors.length || editorError" layout="row" class="warn-font" style="font-size: 0.9em">
-
-            <md-icon md-svg-src="material-design:error_outline" class="ic_16px warn-font"></md-icon>
-
-            <span ng-if="errors.length" ng-repeat="error in errors">{{error}}</span>
-
-            <span ng-if="editorError" style="margin-left: 10px;">{{editorError}}</span>
-
+        <div class="popup-head" id="addClass">
+            <md-toolbar md-scroll-shrink>
+                <div class="md-toolbar-tools">Fenêtre de discussion</div>
+            </md-toolbar>
         </div>
-
-        <div flex></div>
-
-        <md-button type="submit" aria-label="test" ng-disabled="editorError || errors.length">
-            <md-icon md-svg-src="material-design:done"></md-icon>
-            <span style="font-weight:200">Valider</span>
-        </md-button>
-
     </div>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<!--
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-comment"></span> Chat
+                    </div>
+                    <div class="panel-body" style="">
+                        <ul class="chat" id="messages">
+
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Tapez votre mot doux ici..." />
+                  <span class="input-group-btn" id="msg-input">
+                      <md-button class="btn btn-sm" id="btn-chat">
+                          Envoyer votre mot doux</md-button>
+                  </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            var arr = document.location.search.replace("?","").split("&");
+            var param = arr[0].replace("token=","");
+            var user = arr[1].replace("user=","");
+
+            $.ajax({
+                method: "GET",
+                url: "http://localhost:9000/msg/" + param
+            })
+                    .done(function( res ) {
+                        for (var i = 0; i < res.length; i++) {
+                            displayMsg(res[i].txt, res[i].personneid);
+                        }
+                    });
+
+
+            var socket = io();
+
+            socket.emit('create', param);
+
+            $('#btn-chat').click(function(){
+                var json = {
+                    room: param,
+                    val : $('#btn-input').val(),
+                    user : user
+                }
+
+                socket.emit('chat message',json);
+
+
+                $('#btn-input').val('');
+                return false;
+            });
+
+
+            socket.on('chat message', function(msg){
+
+                displayMsg(msg.val, msg.user);
+            });
+
+            function displayMsg(msg, userid) {
+                var cls = user != userid ? "me" : "you";
+                $('#messages').append($('<li class="'+cls+'">').text(msg));
+                $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
+        };
+        });
+
+
+
+
+    </script>
+
+-->
 </form>
+<script>
+    $(function(){
+        $("#addClass").click(function () {
+            $('#qnimate').addClass('popup-box-on');
+            $('#qnimate2').removeClass('popup-box-on');
+        });
+
+        $("#removeClass").click(function () {
+            $('#qnimate').removeClass('popup-box-on');
+            $('#qnimate2').addClass('popup-box-on');
+        });
+    })
+</script>
