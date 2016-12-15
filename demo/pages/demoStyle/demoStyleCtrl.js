@@ -12,11 +12,53 @@ angular.module('demoApp')
             /**
              * Default
              */
-            case       : 'Default Case',
+          case       : 'Template 1',
+            user    : {
+                name : 'toto',
+                firstName :"gaga",
+                photo : 'http://127.0.0.1:9100/images/photos/F60.png',
+                birthDate : "2000-01-01",    
+                phone : "423 213 921",
+                email : "totoga@gmail.com",
+                address : "34 avenue saint martin, 75002 Paris"
+            },
             options    : undefined,
-            json       : undefined,
-            callback   : undefined,
-            listeners  : undefined
+           json       : {  "css": [ 
+      {
+          "photo": {
+                "border-color":"green"
+          }
+      }, 
+      {
+          "general": {
+              "background-color":"whitesmoke"
+          }
+      },
+      {
+          "liste": {
+              "width":"850px",
+              "background-color":"#4f5d73",
+              "color":"whitesmoke"
+          }
+      }
+   ]},
+            callback   : {
+                valid : function(json){
+                    displayCode('Callback : valid',json);
+                    console.log(json.css[0].photo);
+                    $scope.photo=json.css[0].photo;
+                    $scope.general=json.css[1].general;
+                    $scope.liste=json.css[2].liste;
+                    
+                }
+            },
+            listeners  : {
+                onError : function(errors){
+                    displayCode('Listeners : onError',errors,true);
+                }
+            }
+        
+
         },{
             /**
              * Case JSON
