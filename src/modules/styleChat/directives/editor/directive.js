@@ -9,7 +9,9 @@ angular.module('paris1.user.styleChat.editor')
                 callback    : '=?',
                 options     : '=?',
                 listeners   : '=?',
-                height      : '=?'
+                height      : '=?',
+                general     : '=?',
+                texte       : '=?'
             },link : function(scope){
 
                 // -------------------------------------------------------------------------------------------------
@@ -17,6 +19,31 @@ angular.module('paris1.user.styleChat.editor')
                 // -------------------------------------------------------------------------------------------------
                 scope.$watch('options', function(options){
                     // TODO - NO OPTIONS YET
+                });
+                scope.$watch('general',function(general){
+                    $log.info('test general change',general);
+                    if(general){
+
+                        scope.myGeneral = general;
+                    }else{
+                        scope.myGeneral = "";
+                    }
+
+                    console.log(scope.myGeneral);
+
+                });
+
+                scope.$watch('texte',function(texte){
+                    $log.info('test texte change',texte);
+                    if(texte){
+
+                        scope.myTexte = texte;
+                    }else{
+                        scope.myTexte = "";
+                    }
+
+                    console.log(scope.myTexte);
+
                 });
 
                 // -------------------------------------------------------------------------------------------------

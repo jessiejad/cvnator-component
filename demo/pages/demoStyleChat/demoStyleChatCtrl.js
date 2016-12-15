@@ -33,15 +33,30 @@ angular.module('demoApp')
              */
             case       : 'Case Callback and Function',
             options    : undefined,
-            json       : { "background-color" : "red" },
+            json       : { "css": [ 
+      {
+          "photo": {
+                "border-radius":"5px"
+          }
+      }, 
+      {
+          "general": {
+              "background-color":"#4f5d73"
+          }
+      },
+      {
+          "texte": {
+              "color":"yellow"
+          }
+      }
+   ]},
 
             callback   : {
                 valid : function(json){
                     displayCode('Callback : valid',json);
                     console.log(json);
-                    angular.forEach(json, function(value, key) {
-                        $('#myDiv').css(key, value);
-                    });
+                    $scope.general=json.css[1].general;
+                    $scope.texte=json.css[2].texte;
                 }
             },
             listeners  : {

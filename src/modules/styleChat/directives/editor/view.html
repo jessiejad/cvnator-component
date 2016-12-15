@@ -8,7 +8,7 @@
         <!-- header à laisser afficher -->
         <div class="popup-head" id="removeClass">
             <md-toolbar md-scroll-shrink>
-                <div class="md-toolbar-tools">Fenêtre de discussion</div>
+                <div class="md-toolbar-tools" ng-style="myGeneral">Fenêtre de discussion</div>
             </md-toolbar>
         </div>
             <div class="popup-messages" >
@@ -34,8 +34,8 @@
             </div>
             <div class="popup-messages-footer">
                 <div class="input-group">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <input id="status_message" placeholder="Entrez votre message" name="message">
+                    <md-input-container class="md-block" flex-gt-sm ng-style="myTexte"> 
+                        <input ng-style="myTexte" id="status_message" placeholder="Entrez votre message" name="message"  >
                     </md-input-container>
                     <span class="input-group-btn" id="msg-input">
                         <md-button class="md-fab" aria-label="Comment">
@@ -50,7 +50,7 @@
 
         <div class="popup-head" id="addClass">
             <md-toolbar md-scroll-shrink>
-                <div class="md-toolbar-tools">Fenêtre de discussion</div>
+                <div class="md-toolbar-tools" ng-style="myGeneral">Fenêtre de discussion</div>
             </md-toolbar>
         </div>
     </div>
