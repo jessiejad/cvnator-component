@@ -31,14 +31,15 @@ angular.module('demoApp')
       }, 
       {
           "general": {
-              "background-color":"whitesmoke"
+              "background-color":"#4f5d73"
           }
       },
       {
           "liste": {
               "width":"850px",
-              "background-color":"#4f5d73",
-              "color":"whitesmoke"
+              "background-color":"#87CEEB",
+              "color":"whitesmoke",
+              "border-radius":"5px"
           }
       }
    ]},
