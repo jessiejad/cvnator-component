@@ -21,24 +21,10 @@ angular.module('demoApp')
             /**
              * Case JSON
              */
-            case       : 'Case inject Json',
-            options    : undefined,
-            json       : { "background-color" : "red" },
-            callback   : undefined,
-            listeners  : undefined
-
-        },{
-            /**
-             * Callback active
-             */
-            case       : 'Case Callback and Function',
+            case       : 'Template 2',
             options    : undefined,
             json       : { "css": [ 
-      {
-          "photo": {
-                "border-radius":"5px"
-          }
-      }, 
+      
       {
           "general": {
               "background-color":"#4f5d73"
@@ -46,7 +32,7 @@ angular.module('demoApp')
       },
       {
           "texte": {
-              "color":"yellow"
+              "color":"#87CEEB"
           }
       }
    ]},
@@ -55,8 +41,40 @@ angular.module('demoApp')
                 valid : function(json){
                     displayCode('Callback : valid',json);
                     console.log(json);
-                    $scope.general=json.css[1].general;
-                    $scope.texte=json.css[2].texte;
+                    $scope.general=json.css[0].general;
+                    $scope.texte=json.css[1].texte;
+                }
+            },
+            listeners  : {
+                onError : function(errors){
+                    displayCode('Listeners : onError',errors,true);
+                }
+            }},{
+            /**
+             * Callback active
+             */
+            case       : 'Template 3',
+            options    : undefined,
+            json       : { "css": [ 
+      
+      {
+          "general": {
+              "background-color":"#4f5d73"
+          }
+      },
+      {
+          "texte": {
+              "color":"#87CEEB"
+          }
+      }
+   ]},
+
+            callback   : {
+                valid : function(json){
+                    displayCode('Callback : valid',json);
+                    console.log(json);
+                    $scope.general=json.css[0].general;
+                    $scope.texte=json.css[1].texte;
                 }
             },
             listeners  : {
