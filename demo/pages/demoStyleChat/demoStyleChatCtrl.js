@@ -10,29 +10,20 @@ angular.module('demoApp')
 
         $scope.params = [{
             /**
-             * Default
+             * Template 1 Tchat
              */
-            case       : 'Default Case',
-            options    : undefined,
-            json       : undefined,
-            callback   : undefined,
-            listeners  : undefined
-        },{
-            /**
-             * Case JSON
-             */
-            case       : 'Template 2',
+          case       : 'Template 1',
             options    : undefined,
             json       : { "css": [ 
       
       {
           "general": {
-              "background-color":"#4f5d73"
+              "background-color":"orange"
           }
       },
       {
           "texte": {
-              "color":"#87CEEB"
+              "color":"goldenRod"
           }
       }
    ]},
@@ -51,7 +42,39 @@ angular.module('demoApp')
                 }
             }},{
             /**
-             * Callback active
+             * Template 2 tchat
+             */
+            case       : 'Template 2',
+            options    : undefined,
+            json       : { "css": [ 
+      
+      {
+          "general": {
+              "background-color":"green"
+          }
+      },
+      {
+          "texte": {
+              "color":"#2E8B57"
+          }
+      }
+   ]},
+
+            callback   : {
+                valid : function(json){
+                    displayCode('Callback : valid',json);
+                    console.log(json);
+                    $scope.general=json.css[0].general;
+                    $scope.texte=json.css[1].texte;
+                }
+            },
+            listeners  : {
+                onError : function(errors){
+                    displayCode('Listeners : onError',errors,true);
+                }
+            }},{
+            /**
+             * Template 3 tchat
              */
             case       : 'Template 3',
             options    : undefined,
